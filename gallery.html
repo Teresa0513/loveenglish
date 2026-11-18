@@ -1,0 +1,45 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#172b43"><title>活動照片｜LOVE English</title><link rel="stylesheet" href="styles.css"></head><body><header><div class="container nav"><a class="brand" href="index.html">LOVE ENGLISH <small>INTERNATIONAL CAMP · LOS ANGELES</small></a><button class="menu" id="menu">☰</button><nav class="navlinks" id="navlinks"><a href="about.html">營隊介紹</a><a href="itinerary.html">每日行程</a><a href="camp.html">夏令營生活</a><a href="gallery.html">活動照片</a><a href="fees.html">團費方案</a><a href="parents.html">家長資訊</a></nav></div></header><main><section class="page-hero" style="--hero-image:url('assets/thank-you.jpg')"><div class="container"><div class="eyebrow">MOMENTS & MEMORIES</div><h1>旅程中的每一刻，<br>都是成長的風景。</h1><p>以原手冊中的照片，記錄洛杉磯遊學旅程與營隊生活。</p></div></section><section class="section"><div class="container"><div class="notice">照片取自你提供的原手冊截圖裁切，保留原始活動紀錄。若之後取得原始照片，可直接替換 assets 中同名圖片。</div><div class="gallery-grid"><img src="assets/disney-castle.jpg" alt="迪士尼樂園" loading="lazy"><img src="assets/disney-group.jpg" alt="迪士尼團體紀錄" loading="lazy"><img src="assets/camp-independence.jpg" alt="美國國慶文化體驗" loading="lazy"><img src="assets/camp-group.jpg" alt="夏令營生活" loading="lazy"><img src="assets/legoland.jpg" alt="樂高樂園" loading="lazy"><img src="assets/ucla.jpg" alt="UCLA 校園參訪" loading="lazy"><img src="assets/universal.jpg" alt="環球影城" loading="lazy"><img src="assets/pool-party.jpg" alt="夏日泳池派對" loading="lazy"><img src="assets/outlet.jpg" alt="Outlet 購物日" loading="lazy"><img src="assets/thank-you.jpg" alt="感恩分享會" loading="lazy"><img src="assets/arrival.jpg" alt="啟程與返程" loading="lazy"><img src="assets/hero-team.jpg" alt="領隊與團隊" loading="lazy"></div></div></section></main><footer><div class="container"><div class="eyebrow">LOVE ENGLISH · INTERNATIONAL CAMP</div><p><strong>2026 Los Angeles Summer Camp</strong><br>2026.07.01 – 07.25</p><small>本網站為 2026 活動資料網頁化整理。照片使用原手冊素材；正式公開前請主辦單位確認照片授權、個資揭露及行程資訊。</small></div></footer><nav class="mobile-dock"><a href="itinerary.html"><b>▦</b>行程</a><a href="camp.html"><b>✦</b>夏令營</a><a href="gallery.html"><b>▧</b>照片</a><a href="fees.html"><b>＄</b>團費</a><a href="parents.html"><b>☷</b>家長</a></nav><script>document.getElementById('menu').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));</script>
+<script>
+/* Site-wide scroll motion for every page */
+(()=>{
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const selectors=[
+    '.hero-copy','.hero-photo','.page-hero',
+    '.section-head','.story-split','.story-copy','.feature',
+    '.teacher','.price-card','.fee-intro','.table-wrap',
+    '.info','.gallery-grid > *','.photo-strip > *',
+    '.quote-band','.page-cta','.notice','.section > .container > *'
+  ];
+  const nodes=[...new Set(selectors.flatMap(selector=>[...document.querySelectorAll(selector)]))];
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    nodes.forEach(node=>node.classList.add('motion-visible'));
+    document.documentElement.classList.add('site-motion-ready');
+    return;
+  }
+  document.documentElement.classList.add('site-motion-ready');
+  nodes.forEach((node,index)=>{
+    node.classList.add('motion-reveal');
+    const siblings=[...node.parentElement.children].filter(el=>el.matches(selectors.join(',')));
+    const order=Math.max(0,siblings.indexOf(node));
+    node.style.setProperty('--motion-delay',`${Math.min(order*85,425)}ms`);
+  });
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('motion-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.10,rootMargin:'0px 0px -6% 0px'});
+  nodes.forEach(node=>observer.observe(node));
+
+  // Animate navigation state and keep anchor jumps smooth across every page.
+  document.querySelectorAll('a[href^="#"]').forEach(link=>{
+    link.addEventListener('click',event=>{
+      const target=document.querySelector(link.getAttribute('href'));
+      if(target){event.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+})();
+</script>
+</body></html>

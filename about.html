@@ -1,0 +1,49 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#172b43"><title>營隊介紹｜LOVE English</title><link rel="stylesheet" href="styles.css"></head><body><header><div class="container nav"><a class="brand" href="index.html">LOVE ENGLISH <small>INTERNATIONAL CAMP · LOS ANGELES</small></a><button class="menu" id="menu">☰</button><nav class="navlinks" id="navlinks"><a href="about.html">營隊介紹</a><a href="itinerary.html">每日行程</a><a href="camp.html">夏令營生活</a><a href="gallery.html">活動照片</a><a href="fees.html">團費方案</a><a href="parents.html">家長資訊</a></nav></div></header><main><section class="page-hero" style="--hero-image:url('assets/hero-team.jpg')"><div class="container"><div class="eyebrow">ABOUT LOVE ENGLISH</div><h1>用愛陪伴，<br>讓學習走向世界。</h1><p>認識主辦單位、領隊老師與樂福美語遊學團特色。</p></div></section>
+<section class="section"><div class="container story-split"><div class="story-copy"><div class="kicker">OUR STORY</div><h2>樂福簡介</h2><p>樂福美語文教機構（Love English Language School）成立於 100 年 10 月 10 日。原手冊介紹，樂福是一個充滿愛的學習園地，以培育獨立思考的未來領袖為宗旨，提升孩子的自信及素質。</p><p>勤學習、親經典、遊國際、懂文化、擅運動、享藝術。除了考試升學的能力之外，也帶給孩子一生受用的競爭力及與世界接軌的能力。</p></div><img src="assets/camp-benefits.jpg" alt="樂福美語海外學習活動"></div></section>
+<section class="quote-band"><div class="container"><p>「樂福，一個更優質的學習環境，讓您看見生命的蛻變。」</p></div></section>
+<section class="section alt"><div class="container"><div class="section-head"><div><div class="kicker">THE TEAM</div><h2>領隊老師</h2><p>陪伴孩子展開這段海外學習旅程的團隊。</p></div></div><div class="teacher-grid"><article class="teacher"><div class="role">LOVE ENGLISH</div><h3>Daniel Hong</h3><p>樂福美語班主任</p></article><article class="teacher"><div class="role">ENGLISH DEPARTMENT</div><h3>Alexis Tien</h3><p>英語部門主任</p></article><article class="teacher"><div class="role">LOCAL CAMP ADVISOR</div><h3>Katie Laase</h3><p>美國當地營隊顧問</p></article></div><div class="page-cta"><div><h2>主辦單位</h2><p>高雄市樂福美語文教機構</p></div><div class="kicker">LOVE ENGLISH LANGUAGE SCHOOL</div></div></div></section>
+<section class="section"><div class="container"><div class="section-head"><div><div class="kicker">WHY LOVE ENGLISH</div><h2>樂福美語遊學團優勢</h2></div></div><div class="feature-grid"><article class="feature"><div class="feature-no">01</div><h3>小班制及個人化服務</h3><p>依每位學生的需求調整學習計畫，提供更多關注和支持。</p></article><article class="feature"><div class="feature-no">02</div><h3>強化文化體驗與學習成果</h3><p>安排在地文化活動，深入了解美國生活方式，增進跨文化溝通能力。</p></article><article class="feature"><div class="feature-no">03</div><h3>與名校合作的專業課程</h3><p>提供量身打造的專業課程，拓展孩子的國際視野。</p></article><article class="feature"><div class="feature-no">04</div><h3>密切的師生互動</h3><p>老師全程陪伴孩子，不僅是學術指導者，也是生活中的陪伴者。</p></article><article class="feature"><div class="feature-no">05</div><h3>費用透明合理</h3><p>原手冊強調費用資訊透明，讓家長掌握方案內容。</p></article><article class="feature"><div class="feature-no">06</div><h3>個人發展與自信心</h3><p>透過團隊活動與挑戰，練習合作、溝通、勇氣與獨立。</p></article></div></div></section></main><footer><div class="container"><div class="eyebrow">LOVE ENGLISH · INTERNATIONAL CAMP</div><p><strong>2026 Los Angeles Summer Camp</strong><br>2026.07.01 – 07.25</p><small>本網站為 2026 活動資料網頁化整理。照片使用原手冊素材；正式公開前請主辦單位確認照片授權、個資揭露及行程資訊。</small></div></footer><nav class="mobile-dock"><a href="itinerary.html"><b>▦</b>行程</a><a href="camp.html"><b>✦</b>夏令營</a><a href="gallery.html"><b>▧</b>照片</a><a href="fees.html"><b>＄</b>團費</a><a href="parents.html"><b>☷</b>家長</a></nav><script>document.getElementById('menu').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));</script>
+<script>
+/* Site-wide scroll motion for every page */
+(()=>{
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const selectors=[
+    '.hero-copy','.hero-photo','.page-hero',
+    '.section-head','.story-split','.story-copy','.feature',
+    '.teacher','.price-card','.fee-intro','.table-wrap',
+    '.info','.gallery-grid > *','.photo-strip > *',
+    '.quote-band','.page-cta','.notice','.section > .container > *'
+  ];
+  const nodes=[...new Set(selectors.flatMap(selector=>[...document.querySelectorAll(selector)]))];
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    nodes.forEach(node=>node.classList.add('motion-visible'));
+    document.documentElement.classList.add('site-motion-ready');
+    return;
+  }
+  document.documentElement.classList.add('site-motion-ready');
+  nodes.forEach((node,index)=>{
+    node.classList.add('motion-reveal');
+    const siblings=[...node.parentElement.children].filter(el=>el.matches(selectors.join(',')));
+    const order=Math.max(0,siblings.indexOf(node));
+    node.style.setProperty('--motion-delay',`${Math.min(order*85,425)}ms`);
+  });
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('motion-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.10,rootMargin:'0px 0px -6% 0px'});
+  nodes.forEach(node=>observer.observe(node));
+
+  // Animate navigation state and keep anchor jumps smooth across every page.
+  document.querySelectorAll('a[href^="#"]').forEach(link=>{
+    link.addEventListener('click',event=>{
+      const target=document.querySelector(link.getAttribute('href'));
+      if(target){event.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+})();
+</script>
+</body></html>

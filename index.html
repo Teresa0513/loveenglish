@@ -1,0 +1,53 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#172b43"><title>2026 洛杉磯國際夏令營｜LOVE English</title><link rel="stylesheet" href="styles.css"></head><body><header><div class="container nav"><a class="brand" href="index.html">LOVE ENGLISH <small>INTERNATIONAL CAMP · LOS ANGELES</small></a><button class="menu" id="menu">☰</button><nav class="navlinks" id="navlinks"><a href="about.html">營隊介紹</a><a href="itinerary.html">每日行程</a><a href="camp.html">夏令營生活</a><a href="gallery.html">活動照片</a><a href="fees.html">團費方案</a><a href="parents.html">家長資訊</a></nav></div></header><main><section class="hero"><div class="hero-photo"></div><div class="container hero-copy"><div class="eyebrow">LOVE ENGLISH · INTERNATIONAL CAMP</div><h1>LOS ANGELES<br>SUMMER CAMP 2026</h1><p>走進世界，用英文生活。25 天的海外學習、文化體驗與成長旅程。</p><div class="meta"><span class="pill">2026.07.01 – 07.25</span><span class="pill">Los Angeles, California</span><span class="pill">25 DAYS</span></div><div class="actions"><a class="btn" href="itinerary.html">探索每日行程</a><a class="btn secondary" href="parents.html">家長行前資訊</a></div></div></section>
+<section class="section"><div class="container"><div class="section-head"><div><div class="kicker">EXPLORE THE JOURNEY</div><h2>探索 2026 洛杉磯遊學旅程</h2><p>每個主題獨立閱讀，手機上也能快速找到需要的資訊。</p></div></div><div class="grid">
+<a class="card" href="about.html"><img src="assets/camp-benefits.jpg" alt="營隊活動"><div class="card-body"><div class="num">01 · ABOUT</div><h3>營隊介紹</h3><p>認識樂福、領隊與營隊特色。</p></div></a>
+<a class="card" href="itinerary.html"><img src="assets/disney-castle.jpg" alt="迪士尼行程"><div class="card-body"><div class="num">02 · ITINERARY</div><h3>每日行程</h3><p>依日期查詢 25 天行程。</p></div></a>
+<a class="card" href="camp.html"><img src="assets/camp-group.jpg" alt="夏令營生活"><div class="card-body"><div class="num">03 · SUMMER CAMP</div><h3>夏令營生活</h3><p>了解 7/5～7/18 營隊體驗。</p></div></a>
+<a class="card" href="gallery.html"><img src="assets/thank-you.jpg" alt="活動照片"><div class="card-body"><div class="num">04 · GALLERY</div><h3>活動照片</h3><p>瀏覽原手冊中的營隊紀錄。</p></div></a>
+<a class="card" href="fees.html"><img src="assets/outlet.jpg" alt="洛杉磯旅遊"><div class="card-body"><div class="num">05 · PROGRAM & FEES</div><h3>2026 團費方案</h3><p>查閱歷史團費與親子同行方案。</p></div></a>
+<a class="card" href="parents.html"><img src="assets/arrival.jpg" alt="行前準備"><div class="card-body"><div class="num">06 · PARENT INFO</div><h3>家長資訊中心</h3><p>集合、住宿、行李、證件與文件。</p></div></a></div></div></section>
+<section class="quote-band"><div class="container"><p>“See the world. Start here.”<br>從一段旅程開始，讓孩子用英文走進世界。</p></div></section></main><footer><div class="container"><div class="eyebrow">LOVE ENGLISH · INTERNATIONAL CAMP</div><p><strong>2026 Los Angeles Summer Camp</strong><br>2026.07.01 – 07.25</p><small>本網站為 2026 活動資料網頁化整理。照片使用原手冊素材；正式公開前請主辦單位確認照片授權、個資揭露及行程資訊。</small></div></footer><nav class="mobile-dock"><a href="itinerary.html"><b>▦</b>行程</a><a href="camp.html"><b>✦</b>夏令營</a><a href="gallery.html"><b>▧</b>照片</a><a href="fees.html"><b>＄</b>團費</a><a href="parents.html"><b>☷</b>家長</a></nav><script>document.getElementById('menu').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));</script>
+<script>
+/* Site-wide scroll motion for every page */
+(()=>{
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const selectors=[
+    '.hero-copy','.hero-photo','.page-hero',
+    '.section-head','.story-split','.story-copy','.feature',
+    '.teacher','.price-card','.fee-intro','.table-wrap',
+    '.info','.gallery-grid > *','.photo-strip > *',
+    '.quote-band','.page-cta','.notice','.section > .container > *'
+  ];
+  const nodes=[...new Set(selectors.flatMap(selector=>[...document.querySelectorAll(selector)]))];
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    nodes.forEach(node=>node.classList.add('motion-visible'));
+    document.documentElement.classList.add('site-motion-ready');
+    return;
+  }
+  document.documentElement.classList.add('site-motion-ready');
+  nodes.forEach((node,index)=>{
+    node.classList.add('motion-reveal');
+    const siblings=[...node.parentElement.children].filter(el=>el.matches(selectors.join(',')));
+    const order=Math.max(0,siblings.indexOf(node));
+    node.style.setProperty('--motion-delay',`${Math.min(order*85,425)}ms`);
+  });
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('motion-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.10,rootMargin:'0px 0px -6% 0px'});
+  nodes.forEach(node=>observer.observe(node));
+
+  // Animate navigation state and keep anchor jumps smooth across every page.
+  document.querySelectorAll('a[href^="#"]').forEach(link=>{
+    link.addEventListener('click',event=>{
+      const target=document.querySelector(link.getAttribute('href'));
+      if(target){event.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+})();
+</script>
+</body></html>

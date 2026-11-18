@@ -1,0 +1,47 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#172b43"><title>美國夏令營生活｜LOVE English</title><link rel="stylesheet" href="styles.css"></head><body><header><div class="container nav"><a class="brand" href="index.html">LOVE ENGLISH <small>INTERNATIONAL CAMP · LOS ANGELES</small></a><button class="menu" id="menu">☰</button><nav class="navlinks" id="navlinks"><a href="about.html">營隊介紹</a><a href="itinerary.html">每日行程</a><a href="camp.html">夏令營生活</a><a href="gallery.html">活動照片</a><a href="fees.html">團費方案</a><a href="parents.html">家長資訊</a></nav></div></header><main><section class="page-hero" style="--hero-image:url('assets/camp-group.jpg')"><div class="container"><div class="eyebrow">JULY 05 – JULY 18 · 14 DAYS</div><h1>走進真正的<br>美式夏令營生活。</h1><p>與美國當地孩子及國際學生一起生活、學習、活動，展開全英文環境的沉浸式體驗。</p></div></section>
+<section class="section"><div class="container story-split"><img src="assets/camp-group.jpg" alt="美國夏令營團體活動"><div class="story-copy"><div class="kicker">THE CAMP EXPERIENCE</div><h2>美國洛杉磯領袖夏令營</h2><p>這兩週，孩子們將進入真正的美式營隊生活，與美國當地孩子及國際學生一起同住、同吃、同活動，展開全英文環境的沉浸式體驗。</p><p>手冊列出的活動包括森林挑戰、高空繩索、獨木舟、團隊競賽、營火晚會等。</p></div></div><div class="container photo-strip"><img src="assets/camp-independence.jpg" alt="戶外活動"><img src="assets/camp-benefits.jpg" alt="營隊活動"><img src="assets/thank-you.jpg" alt="營隊交流"></div></section>
+<section class="section alt"><div class="container"><div class="section-head"><div><div class="kicker">GROW TOGETHER</div><h2>營隊體驗特色</h2><p>從團隊合作、文化交流到個人成長，讓每一天都有值得帶走的收穫。</p></div></div><div class="feature-grid"><article class="feature"><div class="feature-no">01</div><h3>與當地美國學生交流</h3><p>透過營隊的團隊活動和課程，孩子們有機會結交來自洛杉磯本地的朋友，體驗不同的文化背景，增進國際視野與社交能力。</p></article><article class="feature"><div class="feature-no">02</div><h3>體能與健康生活</h3><p>營隊的體育活動，如游泳、籃球、攀岩和騎馬，幫助孩子們保持身體健康，同時培養積極的生活態度。</p></article><article class="feature"><div class="feature-no">03</div><h3>個人發展與自信心</h3><p>營隊中的挑戰性活動讓孩子們學會如何面對困難並克服它，從而提升自信心。</p></article><article class="feature"><div class="feature-no">04</div><h3>安全和關懷的環境</h3><p>營隊的指導員接受專業訓練，確保每一位學員在活動中的安全，並提供情感上的支持。</p></article></div></div></section></main><footer><div class="container"><div class="eyebrow">LOVE ENGLISH · INTERNATIONAL CAMP</div><p><strong>2026 Los Angeles Summer Camp</strong><br>2026.07.01 – 07.25</p><small>本網站為 2026 活動資料網頁化整理。照片使用原手冊素材；正式公開前請主辦單位確認照片授權、個資揭露及行程資訊。</small></div></footer><nav class="mobile-dock"><a href="itinerary.html"><b>▦</b>行程</a><a href="camp.html"><b>✦</b>夏令營</a><a href="gallery.html"><b>▧</b>照片</a><a href="fees.html"><b>＄</b>團費</a><a href="parents.html"><b>☷</b>家長</a></nav><script>document.getElementById('menu').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));</script>
+<script>
+/* Site-wide scroll motion for every page */
+(()=>{
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const selectors=[
+    '.hero-copy','.hero-photo','.page-hero',
+    '.section-head','.story-split','.story-copy','.feature',
+    '.teacher','.price-card','.fee-intro','.table-wrap',
+    '.info','.gallery-grid > *','.photo-strip > *',
+    '.quote-band','.page-cta','.notice','.section > .container > *'
+  ];
+  const nodes=[...new Set(selectors.flatMap(selector=>[...document.querySelectorAll(selector)]))];
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    nodes.forEach(node=>node.classList.add('motion-visible'));
+    document.documentElement.classList.add('site-motion-ready');
+    return;
+  }
+  document.documentElement.classList.add('site-motion-ready');
+  nodes.forEach((node,index)=>{
+    node.classList.add('motion-reveal');
+    const siblings=[...node.parentElement.children].filter(el=>el.matches(selectors.join(',')));
+    const order=Math.max(0,siblings.indexOf(node));
+    node.style.setProperty('--motion-delay',`${Math.min(order*85,425)}ms`);
+  });
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('motion-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.10,rootMargin:'0px 0px -6% 0px'});
+  nodes.forEach(node=>observer.observe(node));
+
+  // Animate navigation state and keep anchor jumps smooth across every page.
+  document.querySelectorAll('a[href^="#"]').forEach(link=>{
+    link.addEventListener('click',event=>{
+      const target=document.querySelector(link.getAttribute('href'));
+      if(target){event.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+})();
+</script>
+</body></html>
